@@ -16,7 +16,7 @@ const auth= async(req,res,next)=>{
         req.token= token
         next()
     }catch(e){
-        res.status(400).send("Can't authenticate")
+        res.status(401).send("Can't authenticate")
     }
     
 }
