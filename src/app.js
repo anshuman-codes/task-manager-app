@@ -6,9 +6,9 @@ const cors = require("cors");
 
 const app = express();
 
+app.use(express.json()); // Automatically parses incoming JSON as an object for our use
 app.use(cors());
 app.options("*", cors());
-app.use(express.json()); // Automatically parses incoming JSON as an object for our use
 app.use(userRouter);
 app.use(taskRouter);
 
