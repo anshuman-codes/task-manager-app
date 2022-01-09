@@ -6,11 +6,7 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "https://notetask-app.herokuapp.com/",
-  })
-);
+app.use(cors());
 app.use(express.json()); // Automatically parses incoming JSON as an object for our use
 app.use(userRouter);
 app.use(taskRouter);
