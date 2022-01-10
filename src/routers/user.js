@@ -5,7 +5,7 @@ const multer = require("multer");
 const sharp = require("sharp");
 const { sendWelcomeEmail, sendCancelEmail } = require("../emails/account");
 const router = new express.Router();
-const data = require("../data");
+const cors = require("cors");
 
 router.post("/users", async (req, res) => {
   const user = new User(req.body);
@@ -21,11 +21,7 @@ router.post("/users", async (req, res) => {
   }
 });
 
-router.get("/api", (req, res) => {
-  res.json(data);
-});
-
-router.post("/users/login", async (req, res) => {
+router.post("/users/login", cors(), async (req, res) => {
   try {
     const user = await User.findByCredentials(
       req.body.email,
