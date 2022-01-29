@@ -12,13 +12,16 @@ const MainSidebar = ({
   const handleSignOut = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5000/users/logout", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-access-token": localStorage.getItem("token"),
-      },
-    });
+    const response = await fetch(
+      "https://notetask.herokuapp.com/users/logout",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-access-token": localStorage.getItem("token"),
+        },
+      }
+    );
     if (response.status === 200) {
       localStorage.removeItem("token");
       alert("SignOut Successful");

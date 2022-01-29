@@ -6,7 +6,7 @@ const EditTask = () => {
   const { id } = useParams();
   const [completed, setCompleted] = useState(false);
   const [taskMessage, setTaskMessage] = useState("");
-  const url = `http://localhost:5000/tasks/${id}`;
+  const url = `https://notetask.herokuapp.com/tasks/${id}`;
   const [showSidebar, setShowSidebar] = useState(false);
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 600);
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +15,7 @@ const EditTask = () => {
   const [showEditingTask, setShowEditingTask] = useState(false);
 
   const getAvatar = async (id) => {
-    const url = `http://localhost:5000/users/${id}/avatar`;
+    const url = `https://notetask.herokuapp.com/users/${id}/avatar`;
 
     const response = await fetch(url);
     if (response.status === 200) {
@@ -28,7 +28,7 @@ const EditTask = () => {
   };
 
   const getUserData = async () => {
-    const url1 = "http://localhost:5000/users/me";
+    const url1 = "https://notetask.herokuapp.com/users/me";
     const response = await fetch(url1, {
       headers: {
         "x-access-token": localStorage.getItem("token"),

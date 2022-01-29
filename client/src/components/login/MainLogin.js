@@ -19,7 +19,7 @@ const Mainbar = () => {
     e.preventDefault();
     console.log("user is logged in");
 
-    const response = await fetch("http://localhost:5000/users/login", {
+    const response = await fetch("https://notetask.herokuapp.com/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

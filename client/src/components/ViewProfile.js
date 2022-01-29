@@ -6,14 +6,14 @@ const ViewProfile = () => {
   const [age, setAge] = useState(0);
   const [email, setEmail] = useState("");
   const [isEditing, setIsEditing] = useState(false);
-  const url = "http://localhost:5000/users/me";
+  const url = "https://notetask.herokuapp.com/users/me";
   const [showSidebar, setShowSidebar] = useState(false);
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 600);
   const [isLoading, setIsLoading] = useState(true);
   const [avatar, setAvatar] = useState("");
 
   const getAvatar = async (id) => {
-    const url = `http://localhost:5000/users/${id}/avatar`;
+    const url = `https://notetask.herokuapp.com/users/${id}/avatar`;
 
     const response = await fetch(url);
     if (response.status === 200) {

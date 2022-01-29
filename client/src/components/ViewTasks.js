@@ -15,7 +15,7 @@ const ViewTasks = () => {
   const [name, setName] = useState("");
 
   const getAvatar = async (id) => {
-    const url = `http://localhost:5000/users/${id}/avatar`;
+    const url = `https://notetask.herokuapp.com/users/${id}/avatar`;
 
     const response = await fetch(url);
     if (response.status === 200) {
@@ -28,7 +28,7 @@ const ViewTasks = () => {
   };
 
   const getUserData = async () => {
-    const url1 = "http://localhost:5000/users/me";
+    const url1 = "https://notetask.herokuapp.com/users/me";
     const response = await fetch(url1, {
       headers: {
         "x-access-token": localStorage.getItem("token"),
@@ -47,7 +47,7 @@ const ViewTasks = () => {
   });
 
   const getDataFromAPI = async () => {
-    const response = await fetch("http://localhost:5000/tasks", {
+    const response = await fetch("https://notetask.herokuapp.com/tasks", {
       headers: {
         "x-access-token": localStorage.getItem("token"),
         "Content-Type": "application/json",
@@ -81,7 +81,7 @@ const ViewTasks = () => {
   }, [currentPage, taskData]);
 
   const deleteItem = async (id) => {
-    const url = `http://localhost:5000/tasks/${id}`;
+    const url = `https://notetask.herokuapp.com/tasks/${id}`;
     const response = await fetch(url, {
       method: "DELETE",
       headers: {

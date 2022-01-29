@@ -23,7 +23,7 @@ const Mainbar = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5000/users", {
+    const response = await fetch("https://notetask.herokuapp.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,13 +41,16 @@ const Mainbar = () => {
       if (avatar) {
         const avatarData = new FormData();
         avatarData.append("avatar", avatar);
-        const response1 = await fetch("http://localhost:5000/users/me/avatar", {
-          method: "POST",
-          headers: {
-            "x-access-token": localStorage.getItem("token"),
-          },
-          body: avatarData,
-        });
+        const response1 = await fetch(
+          "https://notetask.herokuapp.com/users/me/avatar",
+          {
+            method: "POST",
+            headers: {
+              "x-access-token": localStorage.getItem("token"),
+            },
+            body: avatarData,
+          }
+        );
         console.log(response1);
         const data1 = await response1.json();
         console.log(data1);

@@ -11,7 +11,7 @@ const CreateTask = () => {
   const [name, setName] = useState("");
 
   const getAvatar = async (id) => {
-    const url = `http://localhost:5000/users/${id}/avatar`;
+    const url = `https://notetask.herokuapp.com/users/${id}/avatar`;
 
     const response = await fetch(url);
     if (response.status === 200) {
@@ -24,7 +24,7 @@ const CreateTask = () => {
   };
 
   const getUserData = async () => {
-    const url1 = "http://localhost:5000/users/me";
+    const url1 = "https://notetask.herokuapp.com/users/me";
     const response = await fetch(url1, {
       headers: {
         "x-access-token": localStorage.getItem("token"),
@@ -43,7 +43,7 @@ const CreateTask = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = "http://localhost:5000/tasks";
+    const url = "https://notetask.herokuapp.com/tasks";
     const response = await fetch(url, {
       method: "POST",
       headers: {
