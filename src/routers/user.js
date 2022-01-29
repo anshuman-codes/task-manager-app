@@ -15,7 +15,6 @@ router.post("/users", async (req, res) => {
     user.tokens = user.tokens.concat({ token });
     await user.save();
     sendWelcomeEmail(user.email, user.name);
-    res.cookie("auth_token", token);
     res.status(201).send({ user, token });
   } catch (e) {
     res.status(400).send(e);
@@ -31,7 +30,6 @@ router.post("/users/login", async (req, res) => {
     const token = await user.generateAuthToken();
     user.tokens = user.tokens.concat({ token });
     await user.save();
-    res.cookie("auth_token", token);
     // res.send({user: user.getPublicProfile(),token})  This is one way of hiding private data
     res.send({ user, token });
   } catch (e) {
@@ -92,7 +90,7 @@ router.post(
       .toBuffer();
     req.user.avatar = buffer;
     await req.user.save();
-    res.send();
+    res.send({});
   },
   (error, req, res, next) => {
     // This funnction will run when our middleware throws an error.

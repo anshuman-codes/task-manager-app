@@ -4,8 +4,9 @@ const User = require("../models/user");
 //Express Middleware function
 const auth = async (req, res, next) => {
   try {
-    const token = req.cookies("auth_token");
+    const token = req.headers["x-access-token"];
     const decoded = jwt.verify(token, process.env.JWT_SECRET); // getting the object back
+    console.log(decoded);
     const user = await User.findOne({
       _id: decoded._id,
       "tokens.token": token,

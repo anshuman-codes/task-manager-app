@@ -16,4 +16,8 @@ const taskRouter = require("./routers/task");
 app.use(userRouter);
 app.use(taskRouter);
 
+if (process.env.NODE_ENV == "production") {
+  app.use(express.static("client/build"));
+}
+
 module.exports = app;
