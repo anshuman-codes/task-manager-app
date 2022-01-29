@@ -11,14 +11,14 @@ app.use(express.json()); // Automatically parses incoming JSON as an object for 
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-if (process.env.NODE_ENV == "production") {
-  app.use(express.static("client/build"));
-}
-
 const userRouter = require("./routers/user");
 const taskRouter = require("./routers/task");
 
 app.use(userRouter);
 app.use(taskRouter);
+
+if (process.env.NODE_ENV == "production") {
+  app.use(express.static("client/build"));
+}
 
 module.exports = app;

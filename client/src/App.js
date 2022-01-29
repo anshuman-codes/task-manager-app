@@ -32,7 +32,7 @@ function App() {
         <Route path="/viewProfile">
           <ViewProfile />
         </Route>
-        <Route path="/">
+        <Route path="*">
           <NotFound />
         </Route>
       </Switch>
