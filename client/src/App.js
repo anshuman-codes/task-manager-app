@@ -8,6 +8,7 @@ import ViewTasks from "./components/ViewTasks";
 import CreateTask from "./components/CreateTask";
 import EditTask from "./components/EditTask";
 import ViewProfile from "./components/ViewProfile";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
         </Route>
         <Route path="/viewProfile">
           <ViewProfile />
+        </Route>
+        <Route path="/">
+          <NotFound />
         </Route>
       </Switch>
     </Router>
