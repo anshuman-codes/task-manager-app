@@ -121,7 +121,8 @@ router.delete("/tasks/:id", auth, async (req, res) => {
     res.status(500).send();
   }
 });
-router.get("/", (req, res) => {
+router.get("/*", (req, res) => {
+  console.log("I am here");
   res.sendFile(
     path.join(__dirname, "..", "..", "client", "build", "index.html")
   );
