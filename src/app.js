@@ -2,6 +2,7 @@ require("./db/mongoose.js");
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const path = reuuire("path");
 
 const app = express();
 
@@ -18,6 +19,9 @@ app.use(taskRouter);
 
 if (process.env.NODE_ENV == "production") {
   app.use(express.static("client/build"));
+  app.get("/*", function (req, res) {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
 }
 
 module.exports = app;
