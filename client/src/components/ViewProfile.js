@@ -43,7 +43,7 @@ const ViewProfile = () => {
 
   useEffect(() => {
     getData();
-  });
+  }, []);
 
   const handleSaveChanges = async (e) => {
     e.preventDefault();

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AiFillLock } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
+import {Link} from "react-router-dom"
 
 const Mainbar = () => {
   const [email, setEmail] = useState("");
@@ -88,7 +89,9 @@ const Mainbar = () => {
           In case you are a new user, please sign up.
         </p>
         <button type="submit" className="submit-btn hide-btn">
-          Sign Up
+          <Link className="sidebar-btn-link" to="/signUp">
+            Sign Up
+          </Link>
         </button>
         <p className="dummy-element"></p>
       </form>

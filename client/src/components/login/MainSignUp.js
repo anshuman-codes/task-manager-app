@@ -3,6 +3,7 @@ import { useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { IoMdPersonAdd } from "react-icons/io";
 import { AiFillLock } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Mainbar = () => {
   const [name, setName] = useState("");
@@ -133,6 +134,14 @@ const Mainbar = () => {
         </div>
         <button type="submit" className="submit-btn">
           SignUp
+        </button>
+        <p className="mainbar-msg">
+          In case you already signed up, please login.
+        </p>
+        <button type="submit" className="submit-btn hide-btn">
+          <Link className="sidebar-btn-link" to="/">
+            Login
+          </Link>
         </button>
       </form>
     </main>
